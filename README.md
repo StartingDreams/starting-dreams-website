@@ -5,4 +5,5 @@ Node / Express / Angular Website
 
   * Users
   * Articles
+  * Google / Facebook / Twitter authentication 
   
