@@ -7,6 +7,10 @@
     "test": "gulp allTests",
     "start": "node ./bin/www"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StartingDreams/starting-dreams.git"
+  },
   "author": "David Smith <david@startingdreams.com>",
   "license": "MIT",
   "dependencies": {
