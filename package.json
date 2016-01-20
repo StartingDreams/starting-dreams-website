@@ -1,0 +1,51 @@
+{
+  "name": "starting-dreams",
+  "version": "0.0.1",
+  "description": "Starting Dreams Website",
+  "main": "./bin/www",
+  "scripts": {
+    "test": "gulp allTests",
+    "start": "node ./bin/www"
+  },
+  "author": "David Smith <david@startingdreams.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "bower": "^1.7.2",
+    "cookie-parser": "^1.4.1",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "express-session": "^1.13.0",
+    "file-stream-rotator": "0.0.6",
+    "mongodb": "^2.1.4",
+    "mongoose": "^4.3.6",
+    "morgan": "^1.6.1",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.0.0",
+    "passport-google-oauth": "^0.2.0",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.3",
+    "ramda": "^0.19.1",
+    "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-env": "^0.4.0",
+    "gulp-inject": "^3.0.0",
+    "gulp-jscs": "^3.0.2",
+    "gulp-jshint": "^2.0.0",
+    "gulp-mocha": "^2.2.0",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-sass": "^2.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "jscs": "^2.8.0",
+    "jshint": "^2.9.1",
+    "jshint-stylish": "^2.1.0",
+    "should": "^8.1.1",
+    "sinon": "^1.17.2",
+    "supertest": "^1.1.0",
+    "wiredep": "^3.0.0"
+  }
+}

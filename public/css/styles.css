@@ -1,0 +1,17 @@
+a, a:active, a:hover, a:focus, a:visited {
+  color: white; }
+
+header .navbar.navbar-sd {
+  background-color: white;
+  border-color: #0000ca;
+  border-width: 0 0 5px 0;
+  border-radius: 0;
+  color: #323232; }
+
+header .navbar-toggle {
+  border-color: #0000ca; }
+  header .navbar-toggle .icon-bar {
+    background-color: #0000ca; }
+
+header img.logo {
+  margin: -8px 0 -12px 0; }

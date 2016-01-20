@@ -1,0 +1,31 @@
+function middleware(User) {
+
+    function mustBeLoggedIn(req, res, next) {
+        if (!req.user) {
+            res.status(401).send('You must be logged in to view this page.');
+        } else {
+            next();
+        }
+    }
+
+    function getById(req, res, next) {
+        User.findById(req.params.userId, function(err, user) {
+            if (err) {
+                res.status(500).send(err);
+            } else if (user) {
+                req.selectedUser = user;
+                console.log(user);
+                next();
+            } else {
+                res.status(404).send('user not found');
+            }
+        });
+    }
+
+    return {
+        mustBeLoggedIn: mustBeLoggedIn,
+        getById: getById
+    };
+}
+
+module.exports = middleware;

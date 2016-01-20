@@ -1,0 +1,22 @@
+
+header {
+  .navbar.navbar-sd {
+    background-color: rgba(255, 255, 255, 1);
+    border-color: darken($color-primary, 30%);
+    border-width: 0 0 5px 0;
+    border-radius: 0;
+    color: $color-font-primary;
+
+  }
+
+  .navbar-toggle {
+    border-color: darken($color-primary, 30%);
+    .icon-bar {
+      background-color: darken($color-primary, 30%);
+    }
+  }
+
+  img.logo {
+    margin: -8px 0 -12px 0;
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "name": "starting-dreams",
+  "description": "Starting Dreams Website",
+  "main": "./bin/www",
+  "authors": [
+    "David Smith <david@startingdreams.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.5.0",
+    "angular": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "angular-bootstrap": "angular-ui-bootstrap-bower#~1.1.0",
+    "angular-sanitize": "~1.4.8"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.min.css"
+      ]
+    },
+    "angular-ui-router": {
+      "main": "./release/angular-ui-router.min.js"
+    },
+    "angular-bootstrap": {
+      "main": "./ui-bootstrap-tpls.min.js"
+    },
+    "font-awesome": {
+      "main": [
+        "less/font-awesome.less",
+        "css/font-awesome.min.css",
+        "scss/font-awesome.scss"
+      ]
+    },
+    "angular": {
+      "main": ["./angular.min.js"]
+    },
+    "angular-sanitize": {
+      "main": ["./angular-sanitize.min.js"]
+    },
+    "jquery": {
+      "main": []
+    }
+  }
+}
