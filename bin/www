@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 
 var app = require('../app.js'),
-    port = process.env.PORT || 8888,
+    settings = require('../settings'),
+    port,
     server;
+
+port = process.env.PORT || settings.PORT;
 
 server = app.listen(port, function() {
     console.log('Running on port:' + port);

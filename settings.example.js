@@ -15,7 +15,8 @@ var settings = {
         callbackURL: 'YOUR_CALLBACK_URL'
     },
     LOGFILE: '/log/access.log',
-    sessionKey: 'YOUR_SESSION_KEY'
+    sessionKey: 'YOUR_SESSION_KEY',
+    PORT: 80
 };
 
 module.exports = settings;
