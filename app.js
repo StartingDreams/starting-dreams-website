@@ -14,7 +14,7 @@ app.use(session({secret: sessionKey, resave: true, saveUninitialized: true}));
 
 // Setup
 app.sdSettings = settings;
-require('./src/config/mongoose')(app);
+require('./src/config/mongoose')();
 require('./src/config/morgan')(app, __dirname);
 require('./src/config/passport')(app, {
     google: settings.google,
