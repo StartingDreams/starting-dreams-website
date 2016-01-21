@@ -1,21 +1,23 @@
 (function () {
     'use strict';
 
-    angular.module('sdApp')
+    angular.module('sdAccount')
 
-        .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-
-            $locationProvider.html5Mode({
-                enabled: true
-            });
-            $urlRouterProvider.otherwise('/');
+        .config(function($stateProvider) {
 
             var links = [
                 {
-                    sref: 'home',
-                    label: 'Home',
-                    url: '/',
-                    template: '<sd-articles-view></sd-articles-view>',
+                    sref: 'accountDashboard',
+                    label: 'Account',
+                    url: '/account',
+                    template: '<sd-account-dashboard></sd-account-dashboard>',
+                    view: 'body@'
+                },
+                {
+                    sref: 'accountLogin',
+                    label: 'Login',
+                    url: '/account/login',
+                    template: '<sd-account-login></sd-account-login>',
                     view: 'body@'
                 }
             ];

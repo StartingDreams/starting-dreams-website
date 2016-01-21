@@ -43,6 +43,8 @@ app.use('/api/articles', articleRouter);
 
 // Routes
 app.use('/auth', authRouter);
-app.use('/', indexRouter);
+
+// All other router go to index and are handled by angular.
+app.use('*', indexRouter);
 
 module.exports = app;

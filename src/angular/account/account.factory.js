@@ -9,9 +9,9 @@
             };
 
             function updateUserObject(res) {
-                for (var key in res.data) {
-                    if (res.data.hasOwnProperty(key)) {
-                        user[key] = res.data[key];
+                for (var key in res.data.user) {
+                    if (res.data.user.hasOwnProperty(key)) {
+                        user[key] = res.data.user[key];
                     }
                 }
                 user.loggedIn = true;
@@ -34,7 +34,6 @@
                     .then(updateUserObject)
                     .catch(clearUserObject)
                     .finally(function() {
-                        console.log('user updated!');
                         $rootScope.$broadcast('user.updated');
                     });
             }

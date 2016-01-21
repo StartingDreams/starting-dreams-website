@@ -1,5 +1,26 @@
 a, a:active, a:hover, a:focus, a:visited {
+  color: inherit; }
+
+a.btn-primary {
   color: white; }
+
+.fa-tw:before {
+  content: "\f099"; }
+
+.fa-fb:before {
+  content: "\f09a"; }
+
+.fa-gp:before {
+  content: "\f0d5"; }
+
+.fa-tw-sq:before {
+  content: "\f081"; }
+
+.fa-fb-sq:before {
+  content: "\f082"; }
+
+.fa-gp-sq:before {
+  content: "\f0d4"; }
 
 header .navbar.navbar-sd {
   background-color: white;
@@ -15,3 +36,31 @@ header .navbar-toggle {
 
 header img.logo {
   margin: -8px 0 -12px 0; }
+
+.account-login {
+  max-width: 500px; }
+  .account-login a.btn {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: white;
+    text-align: left; }
+    .account-login a.btn:last-of-type {
+      margin-bottom: 0; }
+
+.btn {
+  color: white; }
+
+.btn-google {
+  background-color: #dd4b39; }
+
+.btn-facebook {
+  background-color: #3b5998; }
+
+.btn-twitter {
+  background-color: #00aced; }
+
+.account-image {
+  height: 34px;
+  margin: -7px 10px -7px -12px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px; }

@@ -18,7 +18,7 @@ function strategy(strategyOptions) {
             image: null,
             accountType: 'facebook',
             accountId: profile.id,
-            email: profile.emails[0].value,
+            email: profile.email,
             gender: null,
             language: null,
             accessToken: accessToken,

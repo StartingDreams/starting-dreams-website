@@ -5,10 +5,9 @@
 
         .directive('sdFooter', function() {
 
-            var controller = function(sdAccountService, sdStateService) {
+            var controller = function(sdStateService) {
                 var vm = this;
                 vm.state = sdStateService;
-                vm.account = sdAccountService;
             };
 
             return {

@@ -3,13 +3,10 @@
 
     angular.module('sdCommon')
 
-        .factory('sdStateService', function() {
-            var user = {
-                loggedIn: false
-            };
+        .factory('sdStateService', function(sdAccountService) {
 
             return {
-                user: user
+                account: sdAccountService
             };
 
         });

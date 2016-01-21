@@ -1,6 +1,6 @@
 (function () {
     'use strict';
 
-    angular.module('sdCommon', ['ngSanitize']);
+    angular.module('sdCommon', ['ngSanitize', 'ui.bootstrap', 'ui.router', 'sdAccount']);
 
 })();
