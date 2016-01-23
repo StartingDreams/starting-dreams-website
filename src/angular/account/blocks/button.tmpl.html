@@ -1,14 +1,29 @@
-<div class="pull-right" ng-cloak>
-    <a ui-sref="accountLogin" ng-hide="vm.account.user.loggedIn" class="btn btn-primary navbar-btn"><i class="fa fa-user"> </i> Sign in</a>
-    <div ng-show="vm.account.user.loggedIn" class="btn-group" uib-dropdown  is-open="vm.status.isopen">
-        <button id="single-button" type="button" class="btn btn-primary navbar-btn" uib-dropdown-toggle ng-disabled="disabled">
-             <img class="account-image" src="{{vm.account.user.image}}" title="{{vm.account.user.displayName}}"> {{vm.account.user.displayName}}</button>
-        </button>
-        <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
-            <li><a ui-sref="articleEdit"><i class="fa fa-file-text-o"></i> New Article</a></li>
-            <li class="divider"></li>
-            <li><a ui-sref="accountSettings"><i class="fa fa-cog"></i> Settings</a></li>
-            <li><a href="/auth/logout" target="_self"><i class="fa fa-user"> </i> Sign Out</a></li>
-        </ul>
-    </div>
+<div layout-align="right center">
+    <md-fab-speed-dial md-open="vm.isOpen" md-direction="left" class="md-fling btn-main">
+        <md-fab-trigger>
+            <md-button aria-label="menu" class="md-fab btn-main">
+                <md-icon md-svg-icon="menu"></md-icon>
+            </md-button>
+        </md-fab-trigger>
+        <md-fab-actions>
+            <!-- Login Buttons -->
+            <md-button ng-hide="vm.account.data.user.loggedIn" aria-label="Twitter" class="md-fab md-raised md-mini btn-twitter" ng-href="/auth/twitter" target="_self">
+                <md-icon md-svg-icon="twitter" aria-label="Twitter"></md-icon>
+            </md-button>
+            <md-button ng-hide="vm.account.data.user.loggedIn" aria-label="Facebook" class="md-fab md-raised md-mini btn-facebook" ng-href="/auth/faceboo" target="_self">
+                <md-icon md-svg-icon="facebook" aria-label="Facebook"></md-icon>
+            </md-button>
+            <md-button ng-hide="vm.account.data.user.loggedIn" aria-label="Google Plus" class="md-fab md-raised md-mini btn-googleplus" ng-href="/auth/google" target="_self">
+                <md-icon md-svg-icon="google-plus" aria-label="Google Plus"></md-icon>
+            </md-button>
+            <!-- Account Buttons -->
+            <md-button ng-show="vm.account.data.user.loggedIn" aria-label="Settings" class="md-fab md-raised md-mini btn-general" ui-sref="settings">
+                <md-icon md-svg-icon="settings" aria-label="Settings"></md-icon>
+            </md-button>
+            <md-button ng-show="vm.account.data.user.loggedIn" aria-label="Log Out" class="md-fab md-raised md-mini btn-danger" ng-href="/auth/logout" target="_self">
+                <md-icon md-svg-icon="logout" aria-label="Log Out"></md-icon>
+            </md-button>
+        </md-fab-actions>
+    </md-fab-speed-dial>
 </div>
+

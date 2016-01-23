@@ -4,44 +4,38 @@
     angular.module('sdAccount')
 
         .factory('sdAccountService', function($http, $rootScope) {
-            var user = {
-                loggedIn: false
+            var loading;
+            var data = {
+                user: {
+                    loggedIn: false
+                }
             };
 
             function updateUserObject(res) {
-                for (var key in res.data.user) {
-                    if (res.data.user.hasOwnProperty(key)) {
-                        user[key] = res.data.user[key];
-                    }
-                }
-                user.loggedIn = true;
+                data.user = res.data.user;
+                data.user.loggedIn = true;
+                $rootScope.$broadcast('user.updated');
             }
 
             function clearUserObject() {
-                for (var key in user) {
-                    if (user.hasOwnProperty(key)) {
-                        if (key === 'loggedIn') {
-                            user.loggedIn = false;
-                        } else {
-                            delete user[key];
-                        }
-                    }
-                }
+                data.user = {loggedIn: false};
+                $rootScope.$broadcast('user.logout');
             }
 
             function update() {
-                $http({method: 'GET', url: '/auth'})
-                    .then(updateUserObject)
-                    .catch(clearUserObject)
-                    .finally(function() {
-                        $rootScope.$broadcast('user.updated');
-                    });
+                if (!loading) {
+                    loading = false;
+                    $http({method: 'GET', url: '/auth'})
+                        .then(updateUserObject)
+                        .catch(clearUserObject)
+                        .finally(function () {
+                            loading = false;
+                        });
+                }
             }
 
-            update();
-
             return {
-                user: user,
+                data: data,
                 update: update
             };
 

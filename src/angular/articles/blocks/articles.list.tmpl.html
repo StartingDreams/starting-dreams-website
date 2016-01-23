@@ -1,0 +1,13 @@
+<aside>
+    <md-content>
+        <md-list>
+            <md-list-item class="md-3-line" ng-repeat="article in vm.articleService.data.articles">
+                <img src="/media/images/logo/starting-dreams-icon.svg" style="height:40px;">
+                <div class="md-list-item-text">
+                    <h3>{{article.title}}</h3>
+                    <p>{{article.excerpt}}</p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</aside>

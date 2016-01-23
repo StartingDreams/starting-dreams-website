@@ -3,6 +3,13 @@ var articleHelpers = require('./helpers');
 function controllers(Article) {
 
     function getAll(req, res) {
+        return res.json({articles: [
+            {title: 'some title 1', excerpt: 'Nulla metus metus, ullamcorper vel.'},
+            {title: 'some title 2', excerpt: 'Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.'},
+            {title: 'some title 3', excerpt: 'Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.'},
+            {title: 'some title 4', excerpt: 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.'}
+        ]});
+
         Article.find({}, function(err, articles) {
             if (err) {
                 res.status(500);

@@ -3,38 +3,25 @@
 
     angular.module('sdApp')
 
-        .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+        .config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdIconProvider) {
 
-            $locationProvider.html5Mode({
-                enabled: true
-            });
+            $mdIconProvider.defaultIconSet('/media/icons/mdi.svg');
+
+            $locationProvider.html5Mode({enabled: true});
+
             $urlRouterProvider.otherwise('/');
 
-            var links = [
-                {
-                    sref: 'home',
-                    label: 'Home',
-                    url: '/',
-                    template: '<sd-articles-view></sd-articles-view>',
-                    view: 'body@'
+            $stateProvider.state('home', {
+                sref: 'home',
+                url: '/',
+                views: {
+                    'body@': {
+                        template: '<sd-article-view></sd-article-view>'
+                    },
+                    'sidebar@': {
+                        template: '<sd-articles-list></sd-articles-list>'
+                    }
                 }
-            ];
-
-            links.forEach(function(link) {
-
-                var linkObj = {
-                    sref: link.sref,
-                    url: link.url,
-                    views: {}
-                };
-
-                linkObj.views[link.view] = {
-                    parent: link.parent,
-                    label: link.label,
-                    template: link.template
-                };
-
-                $stateProvider.state(link.sref, linkObj);
             });
 
         });

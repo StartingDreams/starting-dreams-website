@@ -4,45 +4,37 @@
     angular.module('sdArticles')
 
         .factory('sdArticleService', function($http, $rootScope) {
-            var user = {
-                loggedIn: false
+            var loading;
+            var data = {
+                articles: []
             };
 
-            function updateUserObject(res) {
-                for (var key in res.data) {
-                    if (res.data.hasOwnProperty(key)) {
-                        user[key] = res.data[key];
-                    }
+            function updateArticleList(res) {
+                if (res.data.articles) {
+                    data.articles = res.data.articles;
+                    $rootScope.$broadcast('articles.loaded');
                 }
-                user.loggedIn = true;
-                $rootScope.$broadcast('user.updated');
             }
 
-            function clearUserObject() {
-                for (var key in user) {
-                    if (user.hasOwnProperty(key)) {
-                        if (key === 'loggedIn') {
-                            user.loggedIn = false;
-                        } else {
-                            delete user[key];
-                        }
-                    }
-                }
-                $rootScope.$broadcast('user.updated');
+            function updateFailed() {
+                console.log('failed to update articles.');
             }
 
             function update() {
-                console.log('updating');
-                $http({method: 'GET', url: '/auth'})
-                    .then(updateUserObject, clearUserObject);
+                if (!loading) {
+                    loading = true;
+                    $http({method: 'GET', url: '/api/articles'})
+                        .then(updateArticleList)
+                        .catch(updateFailed)
+                        .finally(function () {
+                            loading = false;
+                        });
+                }
             }
 
-            update();
-
             return {
-                user: user,
+                data: data,
                 update: update
             };
-
         });
 })();

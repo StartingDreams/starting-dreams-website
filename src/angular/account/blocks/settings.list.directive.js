@@ -3,13 +3,13 @@
 
     angular.module('sdAccount')
 
-        .directive('sdAccountLogin', function() {
+        .directive('sdAccountSettingsList', function() {
 
-            var controller = function(sdAccountService) {
+            var controller = function(sdStateService) {
                 var vm = this;
                 vm.navbarCollapsed = true;
 
-                vm.account = sdAccountService;
+                vm.account = sdStateService.account;
 
             };
 
@@ -18,7 +18,7 @@
                 restrict: 'E',
                 controllerAs: 'vm',
                 replace: true,
-                templateUrl: 'account/blocks/login.tmpl.html'
+                templateUrl: 'account/blocks/settings.list.tmpl.html'
             };
         });
 

@@ -1,6 +1,12 @@
-a, a:active, a:hover, a:focus, a:visited {
-  color: inherit;
+html, body {
+  font-family: $primary-font;
+  font-size:14px;
+  height:100%;
+  margin: 0;
+  padding: 0;
 }
-a.btn-primary {
-  color: white;
+
+.md-button.md-fab {
+
+
 }

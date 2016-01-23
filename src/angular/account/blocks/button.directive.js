@@ -9,10 +9,7 @@
                 var vm = this;
                 vm.navbarCollapsed = true;
                 vm.account = sdStateService.account;
-                vm.status = {
-                    isopen: false
-                };
-
+                vm.isOpen = false;
             };
 
             return {

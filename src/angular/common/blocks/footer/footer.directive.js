@@ -14,6 +14,7 @@
                 controller: controller,
                 restrict: 'E',
                 controllerAs: 'vm',
+                replace: true,
                 scope: {},
                 templateUrl: 'common/blocks/footer/footer.tmpl.html'
             };

@@ -6,7 +6,8 @@
         'sdCommon',
         'sdAccount',
         'sdArticles',
-        'sdTemplates'
+        'sdTemplates',
+        'ngMaterial'
     ]);
 
 })();

@@ -1,0 +1,7 @@
+@mixin btncolor($color, $darken) {
+  background-color: $color;
+  &:not([disabled]):hover,
+  &.md-focused:not([disabled]){
+    background-color: darken($color, $darken);
+  }
+}

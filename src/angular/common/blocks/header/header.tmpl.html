@@ -1,26 +1,4 @@
-<header>
-    <nav class="navbar navbar-sd">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" ng-click="vm.navbarCollapsed = !vm.navbarCollapsed">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" ui-sref="home">
-                    <img src="/media/images/logo/starting-dreams-40.png" alt="Starting Dreams Logo" title="Starting Dreams" class="logo" />
-                </a>
-            </div>
-            <div class="collapse navbar-collapse" ng-class="{'in': !vm.navbarCollapsed}">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                </ul>
-                <sd-account-button></sd-account-button>
-            </div>
-        </div>
-    </nav>
+<header layout="row" layout-align="space-between end">
+    <a ui-sref="home"><img class="logo" src="/media/images/logo/starting-dreams.svg" title="Starting Dreams" alt="Starting Dreams"></a>
+    <sd-account-button></sd-account-button>
 </header>

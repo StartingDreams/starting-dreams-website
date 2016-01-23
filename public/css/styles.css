@@ -1,8 +1,9 @@
-a, a:active, a:hover, a:focus, a:visited {
-  color: inherit; }
-
-a.btn-primary {
-  color: white; }
+html, body {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
 
 .fa-tw:before {
   content: "\f099"; }
@@ -22,45 +23,51 @@ a.btn-primary {
 .fa-gp-sq:before {
   content: "\f0d4"; }
 
-header .navbar.navbar-sd {
-  background-color: white;
-  border-color: #0000ca;
-  border-width: 0 0 5px 0;
-  border-radius: 0;
-  color: #323232; }
+.btn-main .md-fab.md-button {
+  color: white;
+  background-color: #ff870d; }
+  .btn-main .md-fab.md-button:not([disabled]):hover, .btn-main .md-fab.md-button.md-focused:not([disabled]) {
+    background-color: #a65400; }
+  .btn-main .md-fab.md-button.btn-facebook {
+    background-color: #3b5998; }
+    .btn-main .md-fab.md-button.btn-facebook:not([disabled]):hover, .btn-main .md-fab.md-button.btn-facebook.md-focused:not([disabled]) {
+      background-color: #1e2e4f; }
+  .btn-main .md-fab.md-button.btn-twitter {
+    background-color: #00aced; }
+    .btn-main .md-fab.md-button.btn-twitter:not([disabled]):hover, .btn-main .md-fab.md-button.btn-twitter.md-focused:not([disabled]) {
+      background-color: #006287; }
+  .btn-main .md-fab.md-button.btn-googleplus {
+    background-color: #dd4b39; }
+    .btn-main .md-fab.md-button.btn-googleplus:not([disabled]):hover, .btn-main .md-fab.md-button.btn-googleplus.md-focused:not([disabled]) {
+      background-color: #96271a; }
+  .btn-main .md-fab.md-button.btn-danger {
+    background-color: #c8191a; }
+    .btn-main .md-fab.md-button.btn-danger:not([disabled]):hover, .btn-main .md-fab.md-button.btn-danger.md-focused:not([disabled]) {
+      background-color: #6d0e0e; }
+  .btn-main .md-fab.md-button.btn-warningr {
+    background-color: #c7c018; }
+    .btn-main .md-fab.md-button.btn-warningr:not([disabled]):hover, .btn-main .md-fab.md-button.btn-warningr.md-focused:not([disabled]) {
+      background-color: #6c680d; }
+  .btn-main .md-fab.md-button.btn-general {
+    background-color: #727276; }
+    .btn-main .md-fab.md-button.btn-general:not([disabled]):hover, .btn-main .md-fab.md-button.btn-general.md-focused:not([disabled]) {
+      background-color: #404042; }
+  .btn-main .md-fab.md-button.btn-success {
+    background-color: #0baa17; }
+    .btn-main .md-fab.md-button.btn-success:not([disabled]):hover, .btn-main .md-fab.md-button.btn-success.md-focused:not([disabled]) {
+      background-color: #054a0a; }
+  .btn-main .md-fab.md-button.btn-orange {
+    background-color: #ff870d; }
+    .btn-main .md-fab.md-button.btn-orange:not([disabled]):hover, .btn-main .md-fab.md-button.btn-orange.md-focused:not([disabled]) {
+      background-color: #a65400; }
+  .btn-main .md-fab.md-button.btn-blue {
+    background-color: #0a8fd1; }
+    .btn-main .md-fab.md-button.btn-blue:not([disabled]):hover, .btn-main .md-fab.md-button.btn-blue.md-focused:not([disabled]) {
+      background-color: #054c70; }
 
-header .navbar-toggle {
-  border-color: #0000ca; }
-  header .navbar-toggle .icon-bar {
-    background-color: #0000ca; }
-
-header img.logo {
-  margin: -8px 0 -12px 0; }
-
-.account-login {
-  max-width: 500px; }
-  .account-login a.btn {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: white;
-    text-align: left; }
-    .account-login a.btn:last-of-type {
-      margin-bottom: 0; }
-
-.btn {
-  color: white; }
-
-.btn-google {
-  background-color: #dd4b39; }
-
-.btn-facebook {
-  background-color: #3b5998; }
-
-.btn-twitter {
-  background-color: #00aced; }
-
-.account-image {
-  height: 34px;
-  margin: -7px 10px -7px -12px;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px; }
+header {
+  padding: 5px;
+  background-color: #f0f0fa;
+  border-bottom: 8px solid #0a8fd1; }
+  header .logo {
+    height: 68px; }

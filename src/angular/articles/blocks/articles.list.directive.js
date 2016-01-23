@@ -3,12 +3,12 @@
 
     angular.module('sdArticles')
 
-        .directive('sdArticlesView', function() {
+        .directive('sdArticlesList', function() {
 
-            var controller = function(sdAccountService, sdStateService) {
+            var controller = function($scope, sdStateService, sdArticleService) {
                 var vm = this;
                 vm.state = sdStateService;
-                vm.account = sdAccountService;
+                vm.articleService = sdArticleService;
             };
 
             return {
@@ -16,7 +16,7 @@
                 restrict: 'E',
                 controllerAs: 'vm',
                 scope: {},
-                templateUrl: 'articles/blocks/articles.view.tmpl.html'
+                templateUrl: 'articles/blocks/articles.list.tmpl.html'
             };
         });
 

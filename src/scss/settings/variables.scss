@@ -1,5 +1,14 @@
-$color-primary: rgba(100, 100, 255, 1);
+$primary-font: 'Roboto', sans-serif;
+
 $color-font-primary: rgba(50, 50, 50, 1);
+$color-danger: rgba(200, 25, 26, 1);
+$color-default: rgba(114, 114, 118, 1);
+$color-warning: rgba(199, 192, 24, 1);
+$color-success: rgba(11, 170, 23, 1);
+$logo-orange: rgba(255, 135, 13, 1);
+$logo-blue: rgba(10, 143, 209, 1);
+
+$color-primary: $logo-blue;
 
 
 $twitter: #00aced;

@@ -11,12 +11,16 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps');
 
 var files = {
-    js: ['*.js', 'src/**/*.js', '!public/js/**/*.js'],
-    sass: ['src/scss/*.scss'],
+    allJs: ['*.js', 'src/**/*.js', '!public/js/**/*.js'],
+    nodejs: ['*.js', 'src/**/*.js', '!public/js/**/*.js', '!src/angular/**/*.js'],
+    scss: ['src/scss/*.scss'],
+    watchScss: ['src/scss/**/*.scss'],
     htmlInject: 'src/views/**/*.ejs',
     tests: ['src/**/*.e2e.js', 'src/**/*.spec.js'],
     cssAndJsInject: ['./public/css/**/*.css', './public/js/**/*.js'],
-    angularBuild: ['src/angular/module.js', 'src/angular/**/*module.js', 'src/angular/**/*.js']
+    angularJs: ['src/angular/module.js', 'src/angular/**/*module.js', 'src/angular/**/*.js'],
+    angularTemplates: ['src/angular/**/*.tmpl.html'],
+    angularTests: ['src/angular/**/*.spec.js']
 };
 
 var injectOptions = {
@@ -40,7 +44,7 @@ var nodemonOptions = {
     },
     watch: '*.js',
     tasks: ['tests'],
-    ignore: ['./node_modules', './public', 'gulpfile.js']
+    ignore: ['./node_modules', './public', 'gulpfile.js', 'src/angular']
 };
 
 var testEnvOptions = {
@@ -51,17 +55,17 @@ var testEnvOptions = {
     }
 };
 
-gulp.task('sass', function() {
+gulp.task('scss', function() {
 
-    return gulp.src(files.sass)
+    return gulp.src(files.scss)
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./public/css'));
 
 });
 
-gulp.task('buildAngular', function() {
+gulp.task('buildAngularJs', function() {
 
-    return gulp.src(files.angularBuild)
+    return gulp.src(files.angularJs)
         .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
         .pipe(sourcemaps.write())
@@ -70,14 +74,24 @@ gulp.task('buildAngular', function() {
 });
 
 gulp.task('buildAngularTemplates', function () {
-    return gulp.src('src/angular/**/*.tmpl.html')
+    return gulp.src(files.angularTemplates)
         .pipe(templateCache('angular.templates.js', {module: 'sdTemplates', standalone: true, moduleSystem: 'IIFE'}))
         .pipe(gulp.dest('public/js'));
 });
 
-gulp.task('build', ['sass', 'buildAngular', 'buildAngularTemplates']);
+gulp.task('angularStyle', function() {
 
-gulp.task('inject', ['build'], function() {
+    return gulp.src(files.angularJs)
+        .pipe(jshint())
+        .pipe(jshint.reporter('jshint-stylish', {
+            verbose: true
+        }))
+        .pipe(jscs())
+        .pipe(jscs.reporter());
+
+});
+
+gulp.task('inject', function() {
 
     var wiredep = require('wiredep').stream;
     var inject = require('gulp-inject');
@@ -90,9 +104,11 @@ gulp.task('inject', ['build'], function() {
 
 });
 
-gulp.task('style', ['inject'], function() {
+gulp.task('build', ['scss', 'buildAngularJs', 'buildAngularTemplates', 'inject']);
 
-    return gulp.src(files.js)
+gulp.task('style', ['build'], function() {
+
+    return gulp.src(files.allJs)
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish', {
             verbose: true
@@ -110,13 +126,32 @@ gulp.task('tests', ['style'], function() {
 
 });
 
-gulp.task('serve', ['tests'], function() {
+gulp.task('angularStyle', ['buildAngularTemplates', 'buildAngularJs'], function() {
 
-    return nodemon(nodemonOptions)
-        .on('restart', function() {
-            console.log('Restarting Node...');
-        });
+    return gulp.src(files.angularJs)
+        .pipe(jshint())
+        .pipe(jshint.reporter('jshint-stylish', {
+            verbose: true
+        }))
+        .pipe(jscs())
+        .pipe(jscs.reporter());
 
+});
+
+gulp.task('angularTests', ['angularStyle'], function() {
+
+    env(testEnvOptions);
+    return gulp.src(files.angularTests, {read: false})
+        .pipe(gulpMocha({reporter: 'progress'}));
+
+});
+
+gulp.task('watchAngular', ['angularTests'], function() {
+    gulp.watch(files.angularJs.concat(files.angularTemplates), ['angularTests']);
+});
+
+gulp.task('watchScss', ['scss'], function() {
+    gulp.watch(files.watchScss, ['scss']);
 });
 
 gulp.task('allTests', function() {
@@ -124,5 +159,16 @@ gulp.task('allTests', function() {
     env(testEnvOptions);
     return gulp.src(files.tests, {read: false})
         .pipe(gulpMocha({reporter: 'spec'}));
+
+});
+
+gulp.task('angular', ['watchAngular', 'watchScss']);
+
+gulp.task('serve', ['tests'], function() {
+
+    return nodemon(nodemonOptions)
+        .on('restart', function() {
+            console.log('Restarting Node...');
+        });
 
 });

@@ -5,10 +5,9 @@
 
         .directive('sdArticleView', function() {
 
-            var controller = function(sdAccountService, sdStateService) {
+            var controller = function(sdStateService, sdArticleService) {
                 var vm = this;
                 vm.state = sdStateService;
-                vm.account = sdAccountService;
             };
 
             return {

@@ -1,0 +1,39 @@
+.btn-main {
+  .md-fab.md-button {
+    color : rgba(255, 255, 255, 1);
+    background-color: $logo-orange;
+
+    &:not([disabled]):hover,
+    &.md-focused:not([disabled]){
+      background-color: darken($logo-orange, 20%);
+    }
+    &.btn-facebook {
+      @include btncolor($facebook, 20%);
+    }
+    &.btn-twitter {
+      @include btncolor($twitter, 20%);
+    }
+    &.btn-googleplus {
+      @include btncolor($googleplus, 20%);
+    }
+    &.btn-danger {
+      @include btncolor($color-danger, 20%);
+    }
+    &.btn-warningr {
+      @include btncolor($color-warning, 20%);
+    }
+    &.btn-general {
+      @include btncolor($color-default, 20%);
+    }
+    &.btn-success {
+      @include btncolor($color-success, 20%);
+    }
+    &.btn-orange {
+      @include btncolor($logo-orange, 20%);
+    }
+    &.btn-blue {
+      @include btncolor($logo-blue, 20%);
+    }
+  }
+}
+
