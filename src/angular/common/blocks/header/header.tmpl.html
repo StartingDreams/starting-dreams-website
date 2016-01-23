@@ -1,4 +1,8 @@
-<header layout="row" layout-align="space-between end">
-    <a ui-sref="home"><img class="logo" src="/media/images/logo/starting-dreams.svg" title="Starting Dreams" alt="Starting Dreams"></a>
-    <sd-account-button></sd-account-button>
+<header layout="row" layout-align="space-between end" class="md-whiteframe-z1">
+    <a ui-sref="home">
+        <img class="logo" src="/media/images/logo/starting-dreams.svg" title="Starting Dreams" alt="Starting Dreams">
+    </a>
+    <md-button hide-gt-sm class="md-fab md-accent" aria-label="Navigation" ng-click="vm.toggleSidebar()">
+        <md-icon md-svg-icon="menu"></md-icon>
+    </md-button>
 </header>

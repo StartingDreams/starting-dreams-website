@@ -1,12 +1,14 @@
-<aside>
-    <md-content>
+<aside layout="column" flex>
+    <md-toolbar>
+        <h1 class="md-toolbar-tools">Articles</h1>
+    </md-toolbar>
+    <md-content layout-padding>
         <md-list>
-            <md-list-item class="md-3-line" ng-repeat="article in vm.articleService.data.articles">
-                <img src="/media/images/logo/starting-dreams-icon.svg" style="height:40px;">
-                <div class="md-list-item-text">
-                    <h3>{{article.title}}</h3>
-                    <p>{{article.excerpt}}</p>
-                </div>
+            <md-list-item ng-repeat="article in vm.articleService.data.articles" flex>
+                <md-button>
+                    <md-icon md-svg-icon="twitter" aria-label="Twitter"></md-icon>
+                    {{article.title}}
+                </md-button>
             </md-list-item>
         </md-list>
     </md-content>

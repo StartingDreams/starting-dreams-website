@@ -5,6 +5,9 @@ html, body {
   margin: 0;
   padding: 0; }
 
+content {
+  margin: 5px; }
+
 .fa-tw:before {
   content: "\f099"; }
 
@@ -23,51 +26,31 @@ html, body {
 .fa-gp-sq:before {
   content: "\f0d4"; }
 
-.btn-main .md-fab.md-button {
-  color: white;
-  background-color: #ff870d; }
-  .btn-main .md-fab.md-button:not([disabled]):hover, .btn-main .md-fab.md-button.md-focused:not([disabled]) {
-    background-color: #a65400; }
-  .btn-main .md-fab.md-button.btn-facebook {
-    background-color: #3b5998; }
-    .btn-main .md-fab.md-button.btn-facebook:not([disabled]):hover, .btn-main .md-fab.md-button.btn-facebook.md-focused:not([disabled]) {
-      background-color: #1e2e4f; }
-  .btn-main .md-fab.md-button.btn-twitter {
-    background-color: #00aced; }
-    .btn-main .md-fab.md-button.btn-twitter:not([disabled]):hover, .btn-main .md-fab.md-button.btn-twitter.md-focused:not([disabled]) {
-      background-color: #006287; }
-  .btn-main .md-fab.md-button.btn-googleplus {
-    background-color: #dd4b39; }
-    .btn-main .md-fab.md-button.btn-googleplus:not([disabled]):hover, .btn-main .md-fab.md-button.btn-googleplus.md-focused:not([disabled]) {
-      background-color: #96271a; }
-  .btn-main .md-fab.md-button.btn-danger {
-    background-color: #c8191a; }
-    .btn-main .md-fab.md-button.btn-danger:not([disabled]):hover, .btn-main .md-fab.md-button.btn-danger.md-focused:not([disabled]) {
-      background-color: #6d0e0e; }
-  .btn-main .md-fab.md-button.btn-warningr {
-    background-color: #c7c018; }
-    .btn-main .md-fab.md-button.btn-warningr:not([disabled]):hover, .btn-main .md-fab.md-button.btn-warningr.md-focused:not([disabled]) {
-      background-color: #6c680d; }
-  .btn-main .md-fab.md-button.btn-general {
-    background-color: #727276; }
-    .btn-main .md-fab.md-button.btn-general:not([disabled]):hover, .btn-main .md-fab.md-button.btn-general.md-focused:not([disabled]) {
-      background-color: #404042; }
-  .btn-main .md-fab.md-button.btn-success {
-    background-color: #0baa17; }
-    .btn-main .md-fab.md-button.btn-success:not([disabled]):hover, .btn-main .md-fab.md-button.btn-success.md-focused:not([disabled]) {
-      background-color: #054a0a; }
-  .btn-main .md-fab.md-button.btn-orange {
-    background-color: #ff870d; }
-    .btn-main .md-fab.md-button.btn-orange:not([disabled]):hover, .btn-main .md-fab.md-button.btn-orange.md-focused:not([disabled]) {
-      background-color: #a65400; }
-  .btn-main .md-fab.md-button.btn-blue {
-    background-color: #0a8fd1; }
-    .btn-main .md-fab.md-button.btn-blue:not([disabled]):hover, .btn-main .md-fab.md-button.btn-blue.md-focused:not([disabled]) {
-      background-color: #054c70; }
+.md-fab.md-button.btn-facebook {
+  background-color: #3b5998; }
+  .md-fab.md-button.btn-facebook:not([disabled]):hover, .md-fab.md-button.btn-facebook.md-focused:not([disabled]) {
+    background-color: #1e2e4f; }
+
+.md-fab.md-button.btn-twitter {
+  background-color: #00aced; }
+  .md-fab.md-button.btn-twitter:not([disabled]):hover, .md-fab.md-button.btn-twitter.md-focused:not([disabled]) {
+    background-color: #006287; }
+
+.md-fab.md-button.btn-googleplus {
+  background-color: #dd4b39; }
+  .md-fab.md-button.btn-googleplus:not([disabled]):hover, .md-fab.md-button.btn-googleplus.md-focused:not([disabled]) {
+    background-color: #96271a; }
 
 header {
   padding: 5px;
-  background-color: #f0f0fa;
-  border-bottom: 8px solid #0a8fd1; }
+  margin: 5px; }
   header .logo {
     height: 68px; }
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0; }
+
+content {
+  margin: 5px; }

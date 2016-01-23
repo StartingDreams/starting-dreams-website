@@ -1,29 +1,19 @@
-<div layout-align="right center">
-    <md-fab-speed-dial md-open="vm.isOpen" md-direction="left" class="md-fling btn-main">
-        <md-fab-trigger>
-            <md-button aria-label="menu" class="md-fab btn-main">
-                <md-icon md-svg-icon="menu"></md-icon>
-            </md-button>
-        </md-fab-trigger>
-        <md-fab-actions>
-            <!-- Login Buttons -->
-            <md-button ng-hide="vm.account.data.user.loggedIn" aria-label="Twitter" class="md-fab md-raised md-mini btn-twitter" ng-href="/auth/twitter" target="_self">
-                <md-icon md-svg-icon="twitter" aria-label="Twitter"></md-icon>
-            </md-button>
-            <md-button ng-hide="vm.account.data.user.loggedIn" aria-label="Facebook" class="md-fab md-raised md-mini btn-facebook" ng-href="/auth/faceboo" target="_self">
-                <md-icon md-svg-icon="facebook" aria-label="Facebook"></md-icon>
-            </md-button>
-            <md-button ng-hide="vm.account.data.user.loggedIn" aria-label="Google Plus" class="md-fab md-raised md-mini btn-googleplus" ng-href="/auth/google" target="_self">
-                <md-icon md-svg-icon="google-plus" aria-label="Google Plus"></md-icon>
-            </md-button>
-            <!-- Account Buttons -->
-            <md-button ng-show="vm.account.data.user.loggedIn" aria-label="Settings" class="md-fab md-raised md-mini btn-general" ui-sref="settings">
-                <md-icon md-svg-icon="settings" aria-label="Settings"></md-icon>
-            </md-button>
-            <md-button ng-show="vm.account.data.user.loggedIn" aria-label="Log Out" class="md-fab md-raised md-mini btn-danger" ng-href="/auth/logout" target="_self">
-                <md-icon md-svg-icon="logout" aria-label="Log Out"></md-icon>
-            </md-button>
-        </md-fab-actions>
-    </md-fab-speed-dial>
-</div>
-
+<md-fab-speed-dial md-open="vm.isOpen" md-direction="left" class="md-scale">
+    <md-fab-trigger>
+        <md-button aria-label="menu" class="md-fab md-warn md-hue-1 btn-account md-raised">
+            <md-icon ng-show="vm.account.data.user.loggedIn" md-svg-icon="account"></md-icon>
+            <md-icon ng-hide="vm.account.data.user.loggedIn" md-svg-icon="account-plus"></md-icon>
+        </md-button>
+    </md-fab-trigger>
+    <md-fab-actions>
+        <md-button ng-repeat="button in vm.buttons"
+                   aria-label="button.label"
+                   class="md-fab md-raised md-mini"
+                   ng-class="button.addClass"
+                   ng-href="{{button.href}}"
+                   ng-attr-target="{{button.target || undefined}}"
+        >
+            <md-icon md-svg-icon="{{button.icon}}" aria-label="Twitter"></md-icon>
+        </md-button>
+    </md-fab-actions>
+</md-fab-speed-dial>

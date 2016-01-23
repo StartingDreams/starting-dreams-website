@@ -6,7 +6,15 @@
         .factory('sdStateService', function(sdAccountService) {
 
             return {
-                account: sdAccountService
+                account: sdAccountService,
+                layout: {
+                    sidebar: {
+                        open: false
+                    }
+                },
+                content: {
+                    article: null
+                }
             };
 
         });

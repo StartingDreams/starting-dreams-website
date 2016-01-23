@@ -3,15 +3,11 @@
 
     angular.module('sdCommon')
 
-        .directive('sdHeader', function() {
+        .directive('sdContent', function() {
 
             var controller = function(sdStateService) {
                 var vm = this;
                 vm.state = sdStateService;
-                vm.toggleSidebar = function() {
-                    vm.state.layout.sidebar.open = !vm.state.layout.sidebar.open;
-                };
-
             };
 
             return {
@@ -20,7 +16,7 @@
                 controllerAs: 'vm',
                 replace: true,
                 scope: {},
-                templateUrl: 'common/blocks/header/header.tmpl.html'
+                templateUrl: 'common/blocks/content/content.tmpl.html'
             };
         });
 
