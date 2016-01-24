@@ -42,15 +42,10 @@ content {
     background-color: #96271a; }
 
 header {
-  padding: 5px;
   margin: 5px; }
   header .logo {
-    height: 40px; }
-
-footer {
-  position: absolute;
-  right: 0;
-  bottom: 0; }
+    margin: 5px;
+    height: 30px; }
 
 content {
   margin: 5px; }

@@ -11,7 +11,7 @@
                         label: 'Settings',
                         icon: 'settings',
                         addClass: 'btn-general',
-                        sref: 'settings'
+                        href: '/account'
                     },
                     {
                         label: 'Log Out',
@@ -49,17 +49,20 @@
             var controller = function($scope, sdStateService) {
                 var vm = this;
                 vm.navbarCollapsed = true;
-                vm.account = sdStateService.account;
                 vm.isOpen = false;
                 vm.buttons = buttons.account;
 
-                $scope.$watch('vm.account', function() {
-                    if (vm.account.data.user.loggedIn) {
+                sdStateService.user.then(function(user) {
+                    vm.user = user;
+                    if (vm.user.loggedIn) {
                         vm.buttons = buttons.account;
                     } else {
                         vm.buttons = buttons.login;
                     }
-                }, true);
+                })
+                .catch(function() {
+                    vm.buttons = buttons.login;
+                });
 
             };
 
@@ -68,10 +71,9 @@
                 restrict: 'E',
                 controllerAs: 'vm',
                 replace: true,
+                scope: {},
                 templateUrl: 'account/blocks/button.tmpl.html'
             };
         });
 
 })();
-
-

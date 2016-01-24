@@ -14,7 +14,6 @@ function middleware(Article) {
                 res.status(500).send(err);
             } else if (article) {
                 req.selectedArticle = article;
-                console.log(article);
                 next();
             } else {
                 res.status(404).send('Article not found');

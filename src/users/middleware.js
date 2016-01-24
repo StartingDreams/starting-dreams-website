@@ -14,7 +14,6 @@ function middleware(User) {
                 res.status(500).send(err);
             } else if (user) {
                 req.selectedUser = user;
-                console.log(user);
                 next();
             } else {
                 res.status(404).send('user not found');

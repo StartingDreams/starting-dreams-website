@@ -3,17 +3,10 @@ var articleHelpers = require('./helpers');
 function controllers(Article) {
 
     function getAll(req, res) {
-        return res.json({articles: [
-            {title: 'some title 1', excerpt: 'Nulla metus metus, ullamcorper vel.'},
-            {title: 'some title 2', excerpt: 'Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.'},
-            {title: 'some title 3', excerpt: 'Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.'},
-            {title: 'some title 4', excerpt: 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.'}
-        ]});
-
         Article.find({}, function(err, articles) {
             if (err) {
                 res.status(500);
-                res.send(err);
+                res.json({});
             } else {
                 res.json(articles);
             }
@@ -27,9 +20,12 @@ function controllers(Article) {
             res.send(validateMessages.join(', '));
         } else {
             var article = new Article(req.body);
+            article.creatorName = req.user.displayName;
+            article.creatorImage = req.user.image;
+            article.creator = req.user._id;
             article.save();
             res.status(201);
-            res.send(article);
+            res.json(article);
         }
     }
 
@@ -43,16 +39,22 @@ function controllers(Article) {
     }
 
     function update(req, res) {
-        if (req.body._id) {
-            delete req.body._id;
-        }
-        for (var p in req.body) {
-            if (req.body.hasOwnProperty(p)) {
-                req.selectedArticle[p] = req.body[p];
+        if (req.selectedArticle.creator === req.user._id) {
+            res.status(403);
+            res.send('Updating someone else\'s articles is forbidden.');
+        } else {
+            if (req.body._id) {
+                delete req.body._id;
             }
+            for (var p in req.body) {
+                if (req.body.hasOwnProperty(p)) {
+                    req.selectedArticle[p] = req.body[p];
+                }
+            }
+            req.selectedArticle.updated = new Date();
+            req.selectedArticle.save();
+            res.json(req.selectedArticle);
         }
-        req.selectedArticle.save();
-        res.json(req.selectedArticle);
     }
 
     function remove(req, res) {

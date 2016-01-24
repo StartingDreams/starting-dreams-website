@@ -7,9 +7,6 @@
 
             var controller = function(sdStateService) {
                 var vm = this;
-                //vm.$watch('state', function(){
-                //    vm.$apply
-                //}, true);
                 vm.state = sdStateService;
             };
 

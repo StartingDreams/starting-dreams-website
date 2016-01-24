@@ -19,6 +19,7 @@ function validate(user) {
 
 function getPublicData(user) {
     return {
+        _id: user._id,
         displayName: user.displayName,
         image: user.image,
         accountType: user.accountType,

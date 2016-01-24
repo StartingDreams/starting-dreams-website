@@ -1,0 +1,65 @@
+<article>
+    <md-toolbar>
+        <h1 class="md-toolbar-tools">{{ vm.article._id ? 'Edit Article' : 'Create New Article' }}</h1>
+    </md-toolbar>
+    <md-content layout-padding>
+        <form name="articleForm">
+            <div layout="row">
+                <md-input-container flex="30">
+                    <label>Icon</label>
+                    <md-select ng-model="vm.article.icon">
+                        <md-option ng-repeat="icon in vm.icons" value="{{icon}}">
+                            <md-icon md-svg-icon="{{icon}}" aria-label="{{icon}}""></md-icon> {{icon}}
+                        </md-option>
+                    </md-select>
+                    <div class="hint" >Displayed before the title.</div>
+                </md-input-container>
+                <md-input-container class="md-block" flex>
+                    <label>Title</label>
+                    <input md-maxlength="50" required="" name="title" ng-model="vm.article.title">
+                    <div class="hint" >Title for your article. This will show at the top of the page.</div>
+                    <div ng-messages="articleForm.title.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex="30">
+                    <label>Priority</label>
+                    <input md-maxlength="5" name="priority" ng-model="vm.article.priority">
+                    <div class="hint" >Priority sets article order.</div>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Image</label>
+                    <input md-maxlength="5" name="headline-image" ng-model="vm.article.headlineImage">
+                    <div class="hint" >Enter a link to an image for your article.</div>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex>
+                    <label>Article Excerpt</label>
+                    <textarea ng-model="vm.article.excerpt" name="excerpt"></textarea>
+                    <div class="hint" >A preview of your article.</div>
+                    <div ng-messages="articleForm.excerpt.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex>
+                    <label>Article</label>
+                    <textarea ng-model="vm.article.content" name="content"></textarea>
+                    <div class="hint" >Content of your article.</div>
+                    <div ng-messages="articleForm.content.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="row" layout-align="end center" ng-if="vm.user.loggedIn">
+                <md-button class="" ng-click="vm.cancel()">Cancel</md-button>
+                <md-button ng-if="vm.article._id" class="md-raised md-warn" ng-click="vm.delete()">Delete</md-button>
+                <md-button class="md-raised md-primary" ng-click="vm.save()">Save</md-button>
+            </div>
+        </form>
+    </md-content>
+</article>

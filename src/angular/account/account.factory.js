@@ -3,40 +3,26 @@
 
     angular.module('sdAccount')
 
-        .factory('sdAccountService', function($http, $rootScope) {
-            var loading;
-            var data = {
-                user: {
-                    loggedIn: false
-                }
-            };
+        .factory('sdAccountService', function($q, $http, $rootScope) {
 
-            function updateUserObject(res) {
-                data.user = res.data.user;
-                data.user.loggedIn = true;
-                $rootScope.$broadcast('user.updated');
-            }
-
-            function clearUserObject() {
-                data.user = {loggedIn: false};
-                $rootScope.$broadcast('user.logout');
-            }
-
-            function update() {
-                if (!loading) {
-                    loading = false;
-                    $http({method: 'GET', url: '/auth'})
-                        .then(updateUserObject)
-                        .catch(clearUserObject)
-                        .finally(function () {
-                            loading = false;
-                        });
-                }
+            function loadUser(resolve, reject) {
+                $http({method: 'GET', url: '/auth'})
+                    .then(function(response) {
+                        if (response.data.user) {
+                            var user = response.data.user;
+                            user.loggedIn = true;
+                            resolve(user);
+                        } else {
+                            reject('invalid response');
+                        }
+                    })
+                    .catch(function () {
+                        reject('could not connect');
+                    });
             }
 
             return {
-                data: data,
-                update: update
+                user: $q(loadUser)
             };
 
         });

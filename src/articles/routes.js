@@ -18,6 +18,7 @@ function articleRoutes() {
         .get(articleController.getById)
         .put(articleController.replace)
         .patch(articleController.update)
+        .post(articleController.update)
         .delete(articleController.remove);
 
     return articleRouter;

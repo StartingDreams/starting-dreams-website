@@ -4,16 +4,16 @@ var mongoose = require('mongoose'),
 var articleModel = new Schema({
 
     title: {type: String},
-    content: {type: String},
+    icon: {type: String},
     headlineImage: {type: String},
-    headline: {type: String},
+    priority: {type: Number},
     excerpt: {type: String},
-
-    creator: {type: Schema.Types.ObjectId},
+    content: {type: String},
 
     // TODO: Name should not be stored here, update to pull current user name.
+    creator: {type: Schema.Types.ObjectId},
     creatorName: {type: String},
-    priority: {type: Number},
+    creatorImage: {type: String},
     visible: {type: Boolean, default: true},
     publishDate: {type: Date, default: Date.now},
     updated: {type: Date, default: Date.now},

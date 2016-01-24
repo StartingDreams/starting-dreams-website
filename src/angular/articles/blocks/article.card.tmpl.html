@@ -1,0 +1,16 @@
+<md-card>
+    <img ng-if="vm.article.headlineImage" src="{{vm.article.headlineImage}}" class="md-card-image" alt="vm.article">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{ vm.article.title }}</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+        <p>
+            {{ vm.article.excerpt }}
+        </p>
+    </md-card-content>
+    <md-card-actions ng-if="vm.user.loggedIn" layout="row" layout-align="end center">
+        <md-button>Edit</md-button>
+    </md-card-actions>
+</md-card>

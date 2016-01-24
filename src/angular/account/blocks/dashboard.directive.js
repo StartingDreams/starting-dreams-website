@@ -5,12 +5,32 @@
 
         .directive('sdAccountDashboard', function() {
 
-            var controller = function(sdStateService) {
+            var controller = function($q, sdStateService, sdArticleService) {
                 var vm = this;
+                var allArticles;
                 vm.navbarCollapsed = true;
+                vm.state = sdStateService;
 
-                vm.account = sdStateService.account;
+                var userPromise = sdStateService.user.then(function(user) {
+                    vm.user = user;
+                });
 
+                var articlePromise = sdArticleService.articles.then(function(articles) {
+                    allArticles = articles;
+                });
+
+                $q.all([userPromise, articlePromise]).then(function() {
+                    vm.articles = allArticles.filter(function(article) {
+                        return article.creator === vm.user._id;
+                    });
+                });
+
+                //sdStateService.articles.$promise.then(function(articles) {
+                //    vm.articles = articles.filter(function(article) {
+                //        console.log(article.creator, vm.account.data.user._id);
+                //        return article.creator === vm.account.data.user._id;
+                //    });
+                //});
             };
 
             return {

@@ -9,7 +9,9 @@
                 var vm = this;
                 vm.navbarCollapsed = true;
 
-                vm.account = sdStateService.account;
+                sdStateService.user.then(function(user) {
+                    vm.user = user;
+                });
 
             };
 

@@ -31,7 +31,6 @@ function strategy(strategyOptions) {
 
             if (err || !user) {
                 userProfile.created = new Date();
-                console.log('mongodb error: ', err);
                 user = new User(userProfile);
                 user.save();
             } else {

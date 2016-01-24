@@ -100,7 +100,7 @@
                         template: '<sd-article-view></sd-article-view>'
                     },
                     'sidebar@': {
-                        template: '<sd-articles-list></sd-articles-list>'
+                        template: '<sd-articles-sidebar></sd-articles-sidebar>'
                     }
                 }
             });

@@ -1,15 +1,16 @@
-<aside layout="column" flex>
-    <md-toolbar>
-        <h1 class="md-toolbar-tools">Articles</h1>
-    </md-toolbar>
-    <md-content layout-padding>
-        <md-list>
-            <md-list-item ng-repeat="article in vm.articleService.data.articles" flex>
-                <md-button>
-                    <md-icon md-svg-icon="twitter" aria-label="Twitter"></md-icon>
-                    {{article.title}}
-                </md-button>
-            </md-list-item>
-        </md-list>
-    </md-content>
-</aside>
+<md-content flex>
+    <md-list >
+        <md-list-item ng-if="vm.user.loggedIn" class="pointer" ng-click="vm.newArticle()">
+            <md-button class="md-icon-button">
+                <md-icon md-svg-icon="file-document" aria-label="New Article" class="md-accent"></md-icon>
+            </md-button>
+            Create a new article.
+        </md-list-item>
+        <md-list-item flex ng-repeat="article in vm.articles" ng-click="vm.viewArticle(article)">
+            <md-button ng-if="article.icon" class="md-icon-button">
+                <md-icon md-svg-icon="{{article.icon}}" aria-label="{{article.icon}}"></md-icon>
+            </md-button>
+            {{article.title}}
+        </md-list-item>
+    </md-list>
+</md-content>

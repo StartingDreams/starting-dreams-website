@@ -7,10 +7,6 @@ function mongooseConfig() {
 
     mongoose.connect(mongooseURI);
 
-    mongoose.connection.on('error',function (err) {
-        console.log('Mongoose default connection error: ' + err + ' on' + mongooseURI);
-    });
-
 }
 
 module.exports = mongooseConfig;

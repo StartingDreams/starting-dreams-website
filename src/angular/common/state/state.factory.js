@@ -3,10 +3,9 @@
 
     angular.module('sdCommon')
 
-        .factory('sdStateService', function(sdAccountService) {
+        .factory('sdStateService', function(sdAccountService, sdArticleService) {
 
             return {
-                account: sdAccountService,
                 layout: {
                     sidebar: {
                         open: false
@@ -14,7 +13,9 @@
                 },
                 content: {
                     article: null
-                }
+                },
+                user: sdAccountService.user,
+                articles: sdArticleService
             };
 
         });
