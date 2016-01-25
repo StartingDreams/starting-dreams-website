@@ -258,7 +258,7 @@ sidebar.active {
   background-size: cover;
   -o-background-size: cover; }
   #home .text-vertical-center {
-    background-color: rgba(50, 50, 50, 0.8);
+    background-color: rgba(0, 0, 0, 0.75);
     padding: 10%; }
   #home .logo {
     display: block;
