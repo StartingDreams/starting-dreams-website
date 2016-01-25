@@ -6,7 +6,7 @@
                 <h2>Our Services</h2>
                 <hr class="small">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 pointer" ng-click="vm.gotoElement('website')">
+                    <div class="col-md-3 col-sm-6 pointer" ng-mouseover="vm.changeSection('website')" ng-mouseleave="vm.changeSection('')">
                         <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
@@ -18,7 +18,7 @@
                             <p>Programming and design.</p>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 pointer" ng-click="vm.gotoElement('mobile')">
+                    <div class="col-md-3 col-sm-6 pointer" ng-mouseover="vm.changeSection('mobile')" ng-mouseleave="vm.changeSection('')">
                         <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
@@ -30,7 +30,7 @@
                             <p>Mobile friendly design.</p>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 pointer" ng-click="vm.gotoElement('cloud')">
+                    <div class="col-md-3 col-sm-6 pointer" ng-mouseover="vm.changeSection('cloud')" ng-mouseleave="vm.changeSection('')">
                         <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
@@ -42,7 +42,7 @@
                             <p>Custom software services.</p>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 pointer" ng-click="vm.gotoElement('consultation')">
+                    <div class="col-md-3 col-sm-6 pointer" ng-mouseover="vm.changeSection('consultation')" ng-mouseleave="vm.changeSection('')">
                         <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
@@ -59,7 +59,7 @@
         </div>
     </div>
     </div>
-    <div class="bg-sd-primary" id="website">
+    <div class="bg-sd-primary" id="website" ng-show="vm.showSection === 'website'">
         <div class="container text-center">
             <h1>Websites</h1>
             <p class="lead">Planning, designing, and then creating a website requires experience.</p>
@@ -67,21 +67,21 @@
             <p class="lead">I will meet with you in person.</p>
         </div>
     </div>
-    <div class="bg-sd-secondary" id="mobile">
+    <div class="bg-sd-primary" id="mobile" ng-show="vm.showSection === 'mobile'">
         <div class="container text-center">
             <h1>Mobile</h1>
             <p class="lead">Mobile friendly websites are a requirement in today's mobile heavy world.</p>
             <p class="lead">Google is searched by mobile devices more often than PC's.</p>
         </div>
     </div>
-    <div class="bg-sd-primary" id="cloud">
+    <div class="bg-sd-primary" id="cloud" ng-show="vm.showSection === 'cloud'">
         <div class="container text-center">
             <h1>Cloud</h1>
             <p class="lead">Want to include Google Map services? Facebook integration? Google Analytics?</p>
             <p class="lead">Connect your website with different cloud services.</p>
         </div>
     </div>
-    <div class="bg-sd-secondary" id="consultation">
+    <div class="bg-sd-primary" id="consultation" ng-show="vm.showSection === 'consultation'">
         <div class="container text-center">
             <h1>Consultation</h1>
             <p class="lead">Avoid Common mistakes and gotchas before they cost you thousands.</p>
