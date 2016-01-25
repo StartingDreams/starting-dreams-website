@@ -41,3 +41,15 @@ hr.small {
   color: #fff;
   background-color: rgba(244, 112, 13, 0.81)
 }
+
+@media (max-width: 767px) {
+  .text-vertical-center h1 {
+    font-size: 3.0em;
+  }
+}
+
+@media (max-width: 479px) {
+  .text-vertical-center h1 {
+    font-size: 2.5em;
+  }
+}
