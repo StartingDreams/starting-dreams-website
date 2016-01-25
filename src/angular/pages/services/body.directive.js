@@ -15,7 +15,7 @@
                 vm.showSection = null;
                 vm.changeSection = function(section) {
                     vm.showSection = section;
-                }
+                };
             };
 
             return {
