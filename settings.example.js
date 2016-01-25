@@ -2,7 +2,8 @@ var settings = {
     google: {
         clientID: 'YOUR_CLIENT_ID',
         clientSecret: 'YOUR_CLIENT_SECRET',
-        callbackURL: 'YOUR_CALLBACK_URL'
+        callbackURL: 'YOUR_CALLBACK_URL',
+        analytics: 'YOUR_TRACKING_ID'
     },
     twitter: {
         consumerKey: 'YOUR_CONSUMER_KEY',

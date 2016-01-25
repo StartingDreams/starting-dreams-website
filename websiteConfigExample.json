@@ -2,7 +2,6 @@
     "name": "starting-dreams-website",
     "version": "0.0.1",
     "data": {
-        "analytics": false,
         "mapUrl": "SEE GOOGLE DEVELOPER TOOLS FOR YOUR LINK"
     }
 }
