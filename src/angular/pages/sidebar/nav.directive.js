@@ -8,6 +8,7 @@
             var controller = function(sdStateService) {
                 var vm = this;
                 vm.state = sdStateService;
+
             };
 
             return {

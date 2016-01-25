@@ -5,9 +5,12 @@
 
         .directive('sdServicesBody', function() {
 
-            var controller = function(sdStateService) {
+            var controller = function(sdStateService, anchorSmoothScroll) {
                 var vm = this;
                 vm.state = sdStateService;
+                vm.gotoElement = function (id){
+                    anchorSmoothScroll.scrollTo(id, 30, 51);
+                };
             };
 
             return {

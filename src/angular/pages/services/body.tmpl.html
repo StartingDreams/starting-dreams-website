@@ -6,7 +6,7 @@
                 <h2>Our Services</h2>
                 <hr class="small">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-3 col-sm-6 pointer" ng-click="vm.gotoElement('website')">
                         <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
@@ -18,7 +18,7 @@
                             <p>Programming and design.</p>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-3 col-sm-6 pointer" ng-click="vm.gotoElement('mobile')">
                         <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
@@ -30,7 +30,7 @@
                             <p>Mobile friendly design.</p>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-3 col-sm-6 pointer" ng-click="vm.gotoElement('cloud')">
                         <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
@@ -42,7 +42,7 @@
                             <p>Custom software services.</p>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-3 col-sm-6 pointer" ng-click="vm.gotoElement('consultation')">
                         <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
@@ -59,11 +59,36 @@
         </div>
     </div>
     </div>
-    <div class="bg-sd-alert">
+    <div class="bg-sd-primary" id="website">
         <div class="container text-center">
             <h1>Websites</h1>
             <p class="lead">Planning, designing, and then creating a website requires experience.</p>
-            <p class="lead">We are not a large corporation with teams of developers hired out. We have one programmer. Me. I will meet with you in person to discuss your needs. I will help you understand your real needs without buzzwords or marketing speech.</p>
+            <p class="lead">Together we will discuss your real needs without buzzwords or marketing speech.</p>
+            <p class="lead">I will meet with you in person.</p>
+        </div>
+    </div>
+    <div class="bg-sd-secondary" id="mobile">
+        <div class="container text-center">
+            <h1>Mobile</h1>
+            <p class="lead">Mobile friendly websites are a requirement in today's mobile heavy world.</p>
+            <p class="lead">Google is searched by mobile devices more often than PC's.</p>
+        </div>
+    </div>
+    <div class="bg-sd-primary" id="cloud">
+        <div class="container text-center">
+            <h1>Cloud</h1>
+            <p class="lead">Want to include Google Map services? Facebook integration? Google Analytics?</p>
+            <p class="lead">Connect your website with different cloud services.</p>
+        </div>
+    </div>
+    <div class="bg-sd-secondary" id="consultation">
+        <div class="container text-center">
+            <h1>Consultation</h1>
+            <p class="lead">Avoid Common mistakes and gotchas before they cost you thousands.</p>
+            <p class="lead">Thinking about spending money on something a telemarketer is trying to sell you?</p>
+            <p class="lead">Have questions about online advertising?</p>
+            <p class="lead">Ask for advice from someone in the field that isn't trying to sell you something.</p>
+            <p class="lead">Hourly billing available for general website and e-commerce advice.</p>
         </div>
     </div>
 </section>
