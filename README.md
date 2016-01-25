@@ -3,10 +3,6 @@ Starting Dreams Website [![Build Status](https://travis-ci.org/StartingDreams/st
 
 Node / Express / Angular Website
 
-  * Material Design
-  * Google / Facebook / Twitter Authentication
-  * Users
-  * Articles
-   
+ Starting Dreams primary website.
 
   

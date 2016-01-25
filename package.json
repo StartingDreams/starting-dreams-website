@@ -1,6 +1,6 @@
 {
   "name": "starting-dreams-website",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Starting Dreams Website",
   "main": "./bin/www",
   "scripts": {
