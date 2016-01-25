@@ -6,96 +6,94 @@
         // Modified from http://jsfiddle.net/alansouzati/6L7tA/
         .service('anchorSmoothScroll', function ($document, $window) {
 
-        var document = $document[0];
-        var window = $window;
+            var document = $document[0];
+            var window = $window;
 
-        function getCurrentPagePosition(window, document) {
-            // Firefox, Chrome, Opera, Safari
-            if (window.pageYOffset) return window.pageYOffset;
-            // Internet Explorer 6 - standards mode
-            if (document.documentElement && document.documentElement.scrollTop)
-                return document.documentElement.scrollTop;
-            // Internet Explorer 6, 7 and 8
-            if (document.body.scrollTop) return document.body.scrollTop;
-            return 0;
-        }
-
-        function getElementY(document, element) {
-            var y = element.offsetTop;
-            var node = element;
-            while (node.offsetParent && node.offsetParent != document.body) {
-                node = node.offsetParent;
-                y += node.offsetTop;
+            function getCurrentPagePosition(window, document) {
+                // Firefox, Chrome, Opera, Safari
+                if (window.pageYOffset) { return window.pageYOffset; }
+                // Internet Explorer 6 - standards mode
+                if (document.documentElement && document.documentElement.scrollTop) {
+                    return document.documentElement.scrollTop;
+                }
+                // Internet Explorer 6, 7 and 8
+                if (document.body.scrollTop) { return document.body.scrollTop; }
+                return 0;
             }
-            return y;
-        }
 
-        this.scrollDown = function (startY, stopY, speed, distance) {
-
-            var timer = 0;
-
-            var step = Math.round(distance / 25);
-            var leapY = startY + step;
-
-            for (var i = startY; i < stopY; i += step) {
-                setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
-                leapY += step;
-                if (leapY > stopY) leapY = stopY;
-                timer++;
+            function getElementY(document, element) {
+                var y = element.offsetTop;
+                var node = element;
+                while (node.offsetParent && node.offsetParent !== document.body) {
+                    node = node.offsetParent;
+                    y += node.offsetTop;
+                }
+                return y;
             }
-        };
 
-        this.scrollUp = function (startY, stopY, speed, distance) {
+            this.scrollDown = function (startY, stopY, speed, distance) {
 
-            var timer = 0;
+                var timer = 0;
 
-            var step = Math.round(distance / 25);
-            var leapY = startY - step;
+                var step = Math.round(distance / 25);
+                var leapY = startY + step;
 
-            for (var i = startY; i > stopY; i -= step) {
-                setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
-                leapY -= step;
-                if (leapY < stopY) leapY = stopY;
-                timer++;
-            }
-        };
+                for (var i = startY; i < stopY; i += step) {
+                    setTimeout('window.scrollTo(0, ' + leapY + ')', timer * speed);
+                    leapY += step;
+                    if (leapY > stopY) { leapY = stopY; }
+                    timer++;
+                }
+            };
 
-        this.scrollToTop = function (stopY) {
-            scrollTo(0, stopY);
-        };
+            this.scrollUp = function (startY, stopY, speed, distance) {
 
-        this.scrollTo = function (elementId, speed, offset) {
-            // This scrolling function
-            // is from http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript
+                var timer = 0;
 
-            var element = document.getElementById(elementId);
+                var step = Math.round(distance / 25);
+                var leapY = startY - step;
 
-            if (element) {
-                var startY = getCurrentPagePosition(window, document);
-                var stopY = getElementY(document, element) - offset;
+                for (var i = startY; i > stopY; i -= step) {
+                    setTimeout('window.scrollTo(0, ' + leapY + ')', timer * speed);
+                    leapY -= step;
+                    if (leapY < stopY) { leapY = stopY; }
+                    timer++;
+                }
+            };
 
-                var distance = stopY > startY ? stopY - startY : startY - stopY;
+            this.scrollToTop = function (stopY) {
+                scrollTo(0, stopY);
+            };
 
-                if (distance < 100) {
-                    this.scrollToTop(stopY);
-                } else {
+            this.scrollTo = function (elementId, speed, offset) {
+                // This scrolling function is from http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript
+                var element = document.getElementById(elementId);
 
-                    var defaultSpeed = Math.round(distance / 100);
-                    speed = speed || (defaultSpeed > 20 ? 20 : defaultSpeed);
+                if (element) {
+                    var startY = getCurrentPagePosition(window, document);
+                    var stopY = getElementY(document, element) - offset;
 
-                    if (stopY > startY) {
+                    var distance = stopY > startY ? stopY - startY : startY - stopY;
 
-                        this.scrollDown(startY, stopY, speed, distance);
+                    if (distance < 100) {
+                        this.scrollToTop(stopY);
                     } else {
-                        this.scrollUp(startY, stopY, speed, distance);
+
+                        var defaultSpeed = Math.round(distance / 100);
+                        speed = speed || (defaultSpeed > 20 ? 20 : defaultSpeed);
+
+                        if (stopY > startY) {
+
+                            this.scrollDown(startY, stopY, speed, distance);
+                        } else {
+                            this.scrollUp(startY, stopY, speed, distance);
+                        }
                     }
+
                 }
 
-            }
+            };
 
-        };
-
-    });
-
+        });
 
 })();

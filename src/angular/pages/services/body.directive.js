@@ -8,7 +8,7 @@
             var controller = function(sdStateService, anchorSmoothScroll) {
                 var vm = this;
                 vm.state = sdStateService;
-                vm.gotoElement = function (id){
+                vm.gotoElement = function (id) {
                     anchorSmoothScroll.scrollTo(id, 30, 51);
                 };
             };
