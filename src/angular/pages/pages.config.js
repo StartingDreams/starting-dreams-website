@@ -31,7 +31,8 @@
                     'sidebar@': {
                         template: '<sd-sidebar-nav></sd-sidebar-nav>'
                     }
-                }
+                },
+                data: {}
             });
 
             $stateProvider.state('portfolio', {
@@ -44,7 +45,8 @@
                     'sidebar@': {
                         template: '<sd-sidebar-nav></sd-sidebar-nav>'
                     }
-                }
+                },
+                data: {}
             });
 
             $stateProvider.state('about', {
@@ -57,7 +59,8 @@
                     'sidebar@': {
                         template: '<sd-sidebar-nav></sd-sidebar-nav>'
                     }
-                }
+                },
+                data: {}
             });
 
             $stateProvider.state('contact', {
@@ -70,7 +73,8 @@
                     'sidebar@': {
                         template: '<sd-sidebar-nav></sd-sidebar-nav>'
                     }
-                }
+                },
+                data: {}
             });
 
         });
