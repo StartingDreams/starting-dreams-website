@@ -8,6 +8,14 @@ function middleware(User) {
         }
     }
 
+    function mustBeLoggedInToGet(req, res, next) {
+        if (req.method !== 'POST' && !req.user) {
+            res.status(401).send('You must be logged in to view this page.');
+        } else {
+            next();
+        }
+    }
+
     function getById(req, res, next) {
         User.findById(req.params.userId, function(err, user) {
             if (err) {
@@ -23,6 +31,7 @@ function middleware(User) {
 
     return {
         mustBeLoggedIn: mustBeLoggedIn,
+        mustBeLoggedInToGet: mustBeLoggedInToGet,
         getById: getById
     };
 }

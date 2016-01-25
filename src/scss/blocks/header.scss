@@ -1,7 +1,18 @@
 header {
-  .logo{
-    margin: 5px;
-    height: 30px;
+  .navbar-brand {
+    padding: 5px 15px;
   }
-  margin: 5px;
+  .logo {
+    height: 100%;
+  }
+
+  .btn-link{
+    color: #222;
+  }
+
+  .navbar {
+    border-bottom: 1px solid #999;
+    margin-bottom: 0;
+    //background: #fff;
+  }
 }

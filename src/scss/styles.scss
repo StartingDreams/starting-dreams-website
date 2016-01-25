@@ -1,9 +1,21 @@
+// Settings and mixins
 @import "settings/variables";
 @import "settings/mixins";
 @import "settings/defaults";
 @import "settings/font-awesome";
+
+// Blocks
 @import "blocks/buttons";
 @import "blocks/header";
 @import "blocks/footer";
 @import "blocks/content";
-@import "blocks/account";
+@import "blocks/sidenav";
+@import "blocks/callout";
+
+// Pages
+@import "pages/home";
+@import "pages/services";
+@import "pages/portfolio";
+@import "pages/map";
+@import "pages/about";
+@import "pages/account";

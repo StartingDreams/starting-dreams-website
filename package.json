@@ -1,5 +1,5 @@
 {
-  "name": "starting-dreams",
+  "name": "starting-dreams-website",
   "version": "0.0.1",
   "description": "Starting Dreams Website",
   "main": "./bin/www",
@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/StartingDreams/starting-dreams.git"
+    "url": "git+https://github.com/StartingDreams/starting-dreams-website.git"
   },
   "author": "David Smith <david@startingdreams.com>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "body-parser": "^1.14.2",
     "bower": "^1.7.2",
@@ -29,6 +29,7 @@
     "passport-google-oauth": "^0.2.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.3",
+    "q": "^1.4.1",
     "ramda": "^0.19.1",
     "serve-favicon": "^2.3.0"
   },

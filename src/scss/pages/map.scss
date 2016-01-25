@@ -1,0 +1,14 @@
+/* Map */
+
+.map {
+  height: 500px;
+  border-color: #333;
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+}
+
+@media(max-width:768px) {
+  .map {
+    height: 75%;
+  }
+}

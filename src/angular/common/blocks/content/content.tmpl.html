@@ -1,9 +1,3 @@
-<content layout="row" flex>
-    <md-sidenav md-is-locked-open="$mdMedia('gt-sm') || vm.state.layout.sidebar.open" md-component-id="left" id="sidebar" class="md-whiteframe-z2" layout="column" layout-align="space-between stretch">
-        <div ui-view="sidebar"></div>
-        <sd-account-button layout="row" layout-align="end center"></sd-account-button>
-    </md-sidenav>
-    <md-content flex id="content" class="md-whiteframe-z1" >
-        <div ui-view="body"></div>
-    </md-content>
+<content ng-class="vm.state.layout.body.full ? 'full-height-body' : ''">
+    <div id="body" ui-view="body"></div>
 </content>

@@ -1,6 +1,7 @@
 var should = require('should'),
     sinon = require('sinon'),
-    R = require('ramda');
+    R = require('ramda'),
+    Q = require('q');
 
 describe('User Controller Tests', function() {
     var User,
@@ -88,9 +89,15 @@ describe('User Controller Tests', function() {
 
         it('should create a user', function() {
             var userController = userControllerFunction(User);
-            userController.create(req, res);
 
-            res.status.calledWith(201).should.equal(true, 'Bad Status: ' + res.status.args[0][0]);
+            Q.Promise(function(resolve, reject) {
+                req.send = resolve;
+                userController.create(req, res);
+            })
+            .then(function() {
+                res.status.calledWith(201).should.equal(true, 'Bad Status: ' + res.status.args[0][0]);
+            });
+
         });
     });
 

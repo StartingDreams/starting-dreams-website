@@ -7,7 +7,8 @@ var userMiddleware = require('./middleware')(User),
 
 function userRoutes() {
 
-    userRouter.use(userMiddleware.mustBeLoggedIn);
+    userRouter.use('/', userMiddleware.mustBeLoggedInToGet);
+    userRouter.use('/:userId', userMiddleware.mustBeLoggedIn);
     userRouter.use('/:userId', userMiddleware.getById);
 
     userRouter.route('/')

@@ -4,10 +4,9 @@
     angular.module('sdApp', [
         'ui.router',
         'sdCommon',
-        'sdAccount',
-        'sdArticles',
+        'sdPages',
         'sdTemplates',
-        'ngMaterial'
+        'ui.bootstrap'
     ]);
 
 })();

@@ -17,7 +17,7 @@ var settings = {
     LOGFILE: '/log/access.log',
     sessionKey: 'YOUR_SESSION_KEY',
     PORT: 80,
-    MONGODB_URI: 'mongodb://localhost/startingdreams'
+    MONGODB_URI: 'mongodb://localhost/yourConnectString'
 };
 
 module.exports = settings;

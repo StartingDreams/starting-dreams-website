@@ -3,3 +3,4 @@ node_modules
 log
 settings.js
 public/lib
+websiteConfig.json

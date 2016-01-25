@@ -36,10 +36,12 @@ var usersRouter = require('./src/users/routes')();
 var articleRouter = require('./src/articles/routes')();
 var authRouter = require('./src/auth/routes')();
 var indexRouter = require('./src/index/routes')();
+var configRouter = require('./src/config/routes')();
 
 // API Routes
 app.use('/api/users', usersRouter);
 app.use('/api/articles', articleRouter);
+app.use('/api/config', configRouter);
 
 // Routes
 app.use('/auth', authRouter);

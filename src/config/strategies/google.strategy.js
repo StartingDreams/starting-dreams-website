@@ -1,5 +1,6 @@
 var passport = require('passport'),
     User = require('../../users/model'),
+    userHelpers = require('../../users/helpers'),
     GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 function strategy(strategyOptions) {
@@ -30,11 +31,19 @@ function strategy(strategyOptions) {
             if (err || !user) {
                 userProfile.created = new Date();
                 user = new User(userProfile);
-                user.save();
+                userHelpers.usersExist()
+                    .then(function(usersExist) {
+                        user.masterUser = !usersExist;
+                        user.save();
+                        next(null, user);
+                    })
+                    .catch(function(error) {
+                        // TODO: add catch.
+                    });
             } else {
                 User.update(userProfile);
+                next(null, user);
             }
-            next(null, user);
 
         });
 

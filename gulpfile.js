@@ -40,7 +40,7 @@ var nodemonOptions = {
     env: {
         'PORT': 8888,
         'ENV': 'Dev',
-        'MONGODB_URI': 'mongodb://localhost/startingDreamsDev'
+        'MONGODB_URI': 'mongodb://localhost/startingDreamsDevWebsite'
     },
     watch: '*.js',
     tasks: ['tests'],
@@ -51,7 +51,7 @@ var testEnvOptions = {
     vars: {
         ENV: 'Test',
         PORT: 5555,
-        'MONGODB_URI': 'mongodb://localhost/sdAPI_Test'
+        'MONGODB_URI': 'mongodb://localhost/sdWebsiteAPI_Test'
     }
 };
 

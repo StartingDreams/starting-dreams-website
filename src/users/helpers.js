@@ -1,4 +1,5 @@
-var User = require('../users/model');
+var User = require('../users/model'),
+    Q = require('q');
 
 function validate(user) {
     var messages = [];
@@ -29,7 +30,23 @@ function getPublicData(user) {
     };
 }
 
+function usersExist() {
+
+    return Q.Promise(function(resolve, reject) {
+        User.find({}, function(err, users) {
+            if (err) {
+                reject(err);
+            } else {
+                console.log('users found: ', users);
+                resolve(users.length > 0);
+            }
+        });
+    });
+
+}
+
 module.exports = {
     validate: validate,
-    getPublicData: getPublicData
+    getPublicData: getPublicData,
+    usersExist: usersExist
 };

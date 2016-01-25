@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="sdApp">
 	<head>
+		<title>Starting Dreams</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta charset="utf-8">
-		<title>Starting Dreams</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<!-- bower:css -->
-		<link rel="stylesheet" href="/lib/angular-material/angular-material.css" />
+		<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
 		<!-- endbower -->
         <!-- inject:css -->
         <link rel="stylesheet" href="/css/styles.css">
         <!-- endinject -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
 		<base href="/">
     </head>
 	<body layout="column" ng-cloak>
 		<sd-header></sd-header>
+		<sd-sidebar></sd-sidebar>
 		<sd-content></sd-content>
+		<sd-contact-block></sd-contact-block>
 		<sd-footer></sd-footer>
 		<!-- script references -->
 		<!-- bower:js -->
@@ -27,9 +34,8 @@
 		<script src="/lib/angular-sanitize/angular-sanitize.min.js"></script>
 		<script src="/lib/angular-animate/angular-animate.js"></script>
 		<script src="/lib/angular-aria/angular-aria.js"></script>
-		<script src="/lib/angular-messages/angular-messages.js"></script>
-		<script src="/lib/angular-material/angular-material.js"></script>
 		<script src="/lib/angular-resource/angular-resource.js"></script>
+		<script src="/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 		<!-- endbower -->
 		<!-- inject:js -->
 		<script src="/js/angular.templates.js"></script>

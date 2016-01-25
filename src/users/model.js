@@ -14,7 +14,7 @@ var userModel = new Schema({
     language: {type: String},
     accessToken: {type: String},
     refreshToken: {type: String},
-
+    masterUser: {type: Boolean, default: false},
     lastLogin: {type: Date},
     created: {type: Date, default: Date.now}
 

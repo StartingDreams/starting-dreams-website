@@ -15,14 +15,27 @@ function controllers(User) {
 
     function create(req, res) {
         var validateMessages = userHelpers.validate(req.body);
+
         if (validateMessages.length > 0) {
             res.status(400);
             res.send(validateMessages.join(', '));
         } else {
-            var user = new User(req.body);
-            user.save();
-            res.status(201);
-            res.send(user);
+            userHelpers.usersExist()
+                .then(function(usersExist) {
+                    var user = new User(req.body);
+                    console.log('users exist: ', usersExist);
+                    user.masterUser = !usersExist;
+                    user.save();
+                    return user;
+                })
+                .then(function(user) {
+                    res.status(201);
+                    res.send(user);
+                })
+                .catch(function() {
+                    res.status(500);
+                    res.send('error saving user!');
+                });
         }
     }
 
