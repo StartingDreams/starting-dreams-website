@@ -11,5 +11,6 @@ before_script:
   - "npm install"
   - "bower install"
   - "cp settings.example.js settings.js"
+  - "cp websiteConfigExample.json websiteConfig.json"
 
 script: gulp allTests
