@@ -35,20 +35,6 @@
                 data: {}
             });
 
-            $stateProvider.state('portfolio', {
-                sref: 'portfolio',
-                url: '/portfolio',
-                views: {
-                    'body@': {
-                        template: '<sd-portfolio-body></sd-portfolio-body>'
-                    },
-                    'sidebar@': {
-                        template: '<sd-sidebar-nav></sd-sidebar-nav>'
-                    }
-                },
-                data: {}
-            });
-
             $stateProvider.state('about', {
                 sref: 'about',
                 url: '/about',
