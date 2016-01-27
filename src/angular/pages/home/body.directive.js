@@ -5,9 +5,12 @@
 
         .directive('sdHomeBody', function() {
 
-            var controller = function(sdStateService) {
+            var controller = function(sdStateService, sdNavConfig) {
                 var vm = this;
                 vm.state = sdStateService;
+                vm.nav = sdNavConfig.filter(function(nav) {
+                    return nav.home;
+                });
             };
 
             return {

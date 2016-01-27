@@ -3,9 +3,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h3>Local ~ Professional ~ Experienced</h3>
-                <a ui-sref="services" ui-sref-active="active" class="btn btn-default"><i class="fa fa-cogs"></i> Services</a>
-                <a ui-sref="about" href="#" ui-sref-active="active" class="btn btn-default"><i class="fa fa-question-circle"></i> About Us</a>
-                <a ui-sref="contact" href="#" ui-sref-active="active" class="btn btn-default"><i class="fa fa-phone"></i> Contact</a>
+                <a ng-repeat="nav in vm.nav" ui-sref="{{nav.sref}}" ui-sref-active="active" class="btn btn-default"><i class="fa" ng-class="nav.icon"></i> {{ nav.label }}</a>
             </div>
         </div>
     </div>

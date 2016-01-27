@@ -5,10 +5,10 @@
 
         .directive('sdSidebarNav', function() {
 
-            var controller = function(sdStateService) {
+            var controller = function(sdStateService, sdNavConfig) {
                 var vm = this;
                 vm.state = sdStateService;
-
+                vm.nav = sdNavConfig;
             };
 
             return {
